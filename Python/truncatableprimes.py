@@ -1,6 +1,6 @@
 from functools import lru_cache
 # 1 Find the eleven truncatable primes
-
+@lru_cache
 def is_prime_number(n:int) -> bool:
     if n == 1:
         return False
@@ -25,6 +25,7 @@ if __name__=="__main__":
                 break
         else:
             true_from_left = True
+        
         # Truncate from the left
         for i in range(1, len(str(number_to_check))):
             number_left =  number_to_check%(10**i)
@@ -36,5 +37,5 @@ if __name__=="__main__":
         if true_from_left and true_from_right:
             result.append(number_to_check)
         number_to_check+=1
-        print(number_to_check)
-    print(result)
+        
+    print(sum(result))
